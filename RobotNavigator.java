@@ -9,29 +9,39 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
  */
 
 public class RobotNavigator {
-    private DcMotor leftMotor;
-    private DcMotor rightMotor;
+    private DcMotor Topl;
+    private DcMotor Topr;
+    private DcMotor Rearr;
+    private DcMotor Rearl;
 
     public void init(HardwareMap hardwareMap) {
-        leftMotor = hardwareMap.get(DcMotor.class, "leftMotor");
-        leftMotor = hardwareMap.get(DcMotor.class, "leftMotor");
-        rightMotor = hardwareMap.get(DcMotor.class, "rightMotor");
+        Topl = hardwareMap.get(DcMotor.class, "leftMotor");
+        Topr= hardwareMap.get(DcMotor.class, "leftMotor");
+        Rearl = hardwareMap.get(DcMotor.class, "rightMotor");
+        Rearr = hardwareMap.get(DcMotor.class, "rightMotor");
         //leftMotor.setDirection(DcMotor.Direction.REVERSE);
     }
 
     public void setRunWithEncoderMode() {
-        leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        Topr.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        Topl.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        Rearl.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        Rearr.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
     }
 
     public void moveForward(double power) {
-        leftMotor.setPower(power);
-        rightMotor.setPower(power);
+        Topr.setPower(power);
+        Topl.setPower(power);
+        Rearl.setPower(power);
+        Rearr.setPower(power);
     }
 
     public void moveBackward(double power) {
-        leftMotor.setPower(-power);
-        rightMotor.setPower(-power);
+        Topr.setPower(-power);
+        Topl.setPower(-power);
+        Rearl.setPower(-power);
+        Rearr.setPower(-power);
     }
 
     public void moveLeft (double power){
@@ -107,12 +117,11 @@ public class RobotNavigator {
     }
 
     public void  setLeftMotorPower(double power) {
-        leftMotor.setPower(power);
+        Topl.setPower(power);
     }
 
     public void  setRightMotorPower(double power) {
-        rightMotor.setPower(power);
-    }
+        Topr.setPower(power); }
 
     public boolean isRightMotorBusy() {
         return rightMotor.isBusy();
