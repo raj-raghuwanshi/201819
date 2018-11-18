@@ -11,6 +11,7 @@ public class Mecanum extends LinearOpMode {
     private DcMotor Topr;
     private DcMotor Rearl;
     private DcMotor Rearr;
+    private DcMotor Lander;
 
     @Override
     public void runOpMode() {
@@ -19,6 +20,8 @@ public class Mecanum extends LinearOpMode {
         Topr = hardwareMap.get(DcMotor.class, "Topr");
         Rearl = hardwareMap.get(DcMotor.class, "Rearl");
         Rearr = hardwareMap.get(DcMotor.class, "Rearr");
+        Lander= hardwareMap.get(DcMotor.class, "Lander");
+
 
 
         waitForStart();
@@ -26,6 +29,7 @@ public class Mecanum extends LinearOpMode {
         double tgtPower2 = 0;
         double tgtPower3 = 0;
         double tgtPower4 = 0;
+        double tgtPower5 = 0;
         double multiPlier1 = 1;
         double multiPlier2 = 1;
         while (opModeIsActive()) {
@@ -83,6 +87,11 @@ public class Mecanum extends LinearOpMode {
                 tgtPower4=multiPlier1*this.gamepad1.left_stick_x;
                 Rearr.setPower(tgtPower4);
                 //__________
+            }
+            if(gamepad2.right_trigger!=0) {
+                Lander.setPower(tgtPower1);
+                tgtPower5=multiPlier2*this.gamepad2.right_trigger;
+
             }
 
 

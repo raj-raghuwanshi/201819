@@ -6,15 +6,13 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 
-@TeleOp (name="TestMotor1", group="testGroup1")
-public class TestMotor extends LinearOpMode {
+@TeleOp (name="TestLander1", group="testGroup1")
+public class TestLander extends LinearOpMode {
     private DcMotor Lander;
-    private Servo TestServo;
     @Override
     public void runOpMode() {
         //imu = hardwareMap.get(Gyroscope.class, "imu");
         Lander = hardwareMap.get(DcMotor.class, "Lander");
-        TestServo = hardwareMap.get(Servo.class, "TestServo");
         waitForStart();
         double tgtPower1 = 0;
         double multiPlier1 = 1;
@@ -29,12 +27,10 @@ public class TestMotor extends LinearOpMode {
 
                 if(gamepad1.y) {
                     // move to 0 degrees.
-                    TestServo.setPosition(0);
 
                     //servoTest2.setPosition(1);
                 } else if (gamepad1.a) {
                     // move to 180 degrees.
-                    TestServo.setPosition(0.75);
 
                     //servoTest1.setPosition(1);
                     //servoTest2.setPosition(0);
